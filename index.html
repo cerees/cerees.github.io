@@ -1,102 +1,65 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<body> 
- <style>
-.link {
-stroke: #666;
-opacity: 0.8;
-stroke-width: 1.5px;
-}
-.node circle {
-stroke: #fff;
-opacity: 0.8;
-stroke-width: 1.5px;
-}
-.node:not(:hover) .nodetext {
-display: none;
-}
-text {
-font: 7px serif;
-opacity: 0.8;
-pointer-events: none;
-}
-</style>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Cerees.github.io by cerees</title>
 
-<script src=http://d3js.org/d3.v3.min.js></script>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Cerees.github.io</h1>
+        <p></p>
 
-<script> 
- var links = [ { "source" : 39, "target" : 26, "value" : 2 }, { "source" : 62, "target" : 31, "value" : 2 }, { "source" : 99, "target" : 6, "value" : 2 }, { "source" : 127, "target" : 22, "value" : 2 }, { "source" : 141, "target" : 3, "value" : 1 }, { "source" : 143, "target" : 52, "value" : 1 }, { "source" : 144, "target" : 139, "value" : 1 }, { "source" : 151, "target" : 125, "value" : 1 }, { "source" : 183, "target" : 137, "value" : 2 }, { "source" : 186, "target" : 57, "value" : 1 }, { "source" : 195, "target" : 116, "value" : 1 }, { "source" : 202, "target" : 129, "value" : 1 }, { "source" : 216, "target" : 130, "value" : 2 }, { "source" : 217, "target" : 85, "value" : 2 }, { "source" : 225, "target" : 68, "value" : 1 }, { "source" : 225, "target" : 169, "value" : 2 }, { "source" : 226, "target" : 85, "value" : 1 }, { "source" : 231, "target" : 97, "value" : 1 }, { "source" : 248, "target" : 126, "value" : 1 }, { "source" : 249, "target" : 193, "value" : 1 } ] ; 
- var nodes = [ { "name" : 1, "group" : 3 }, { "name" : 2, "group" : 4 }, { "name" : 3, "group" : 2 }, { "name" : 4, "group" : 1 }, { "name" : 5, "group" : 5 }, { "name" : 6, "group" : 5 }, { "name" : 7, "group" : 6 }, { "name" : 8, "group" : 3 }, { "name" : 9, "group" : 1 }, { "name" : 10, "group" : 3 }, { "name" : 11, "group" : 3 }, { "name" : 12, "group" : 1 }, { "name" : 13, "group" : 6 }, { "name" : 14, "group" : 3 }, { "name" : 15, "group" : 6 }, { "name" : 16, "group" : 5 }, { "name" : 17, "group" : 4 }, { "name" : 18, "group" : 6 }, { "name" : 19, "group" : 3 }, { "name" : 20, "group" : 3 }, { "name" : 21, "group" : 1 }, { "name" : 22, "group" : 5 }, { "name" : 23, "group" : 3 }, { "name" : 24, "group" : 5 }, { "name" : 25, "group" : 5 }, { "name" : 26, "group" : 4 }, { "name" : 27, "group" : 3 }, { "name" : 28, "group" : 6 }, { "name" : 29, "group" : 3 }, { "name" : 30, "group" : 3 }, { "name" : 31, "group" : 4 }, { "name" : 32, "group" : 1 }, { "name" : 33, "group" : 6 }, { "name" : 34, "group" : 5 }, { "name" : 35, "group" : 6 }, { "name" : 36, "group" : 4 }, { "name" : 37, "group" : 5 }, { "name" : 38, "group" : 2 }, { "name" : 39, "group" : 5 }, { "name" : 40, "group" : 3 }, { "name" : 41, "group" : 3 }, { "name" : 42, "group" : 2 }, { "name" : 43, "group" : 2 }, { "name" : 44, "group" : 2 }, { "name" : 45, "group" : 4 }, { "name" : 46, "group" : 3 }, { "name" : 47, "group" : 6 }, { "name" : 48, "group" : 6 }, { "name" : 49, "group" : 6 }, { "name" : 50, "group" : 5 }, { "name" : 51, "group" : 4 }, { "name" : 52, "group" : 3 }, { "name" : 53, "group" : 5 }, { "name" : 54, "group" : 2 }, { "name" : 55, "group" : 2 }, { "name" : 56, "group" : 2 }, { "name" : 57, "group" : 3 }, { "name" : 58, "group" : 1 }, { "name" : 59, "group" : 6 }, { "name" : 60, "group" : 4 }, { "name" : 61, "group" : 5 }, { "name" : 62, "group" : 6 }, { "name" : 63, "group" : 6 }, { "name" : 64, "group" : 3 }, { "name" : 65, "group" : 4 }, { "name" : 66, "group" : 4 }, { "name" : 67, "group" : 3 }, { "name" : 68, "group" : 5 }, { "name" : 69, "group" : 4 }, { "name" : 70, "group" : 6 }, { "name" : 71, "group" : 6 }, { "name" : 72, "group" : 3 }, { "name" : 73, "group" : 1 }, { "name" : 74, "group" : 5 }, { "name" : 75, "group" : 2 }, { "name" : 76, "group" : 3 }, { "name" : 77, "group" : 1 }, { "name" : 78, "group" : 2 }, { "name" : 79, "group" : 6 }, { "name" : 80, "group" : 3 }, { "name" : 81, "group" : 4 }, { "name" : 82, "group" : 2 }, { "name" : 83, "group" : 2 }, { "name" : 84, "group" : 4 }, { "name" : 85, "group" : 3 }, { "name" : 86, "group" : 6 }, { "name" : 87, "group" : 3 }, { "name" : 88, "group" : 1 }, { "name" : 89, "group" : 2 }, { "name" : 90, "group" : 1 }, { "name" : 91, "group" : 3 }, { "name" : 92, "group" : 3 }, { "name" : 93, "group" : 6 }, { "name" : 94, "group" : 6 }, { "name" : 95, "group" : 4 }, { "name" : 96, "group" : 5 }, { "name" : 97, "group" : 6 }, { "name" : 98, "group" : 1 }, { "name" : 99, "group" : 2 }, { "name" : 100, "group" : 2 }, { "name" : 101, "group" : 2 }, { "name" : 102, "group" : 2 }, { "name" : 103, "group" : 5 }, { "name" : 104, "group" : 1 }, { "name" : 105, "group" : 2 }, { "name" : 106, "group" : 1 }, { "name" : 107, "group" : 2 }, { "name" : 108, "group" : 2 }, { "name" : 109, "group" : 2 }, { "name" : 110, "group" : 6 }, { "name" : 111, "group" : 6 }, { "name" : 112, "group" : 6 }, { "name" : 113, "group" : 5 }, { "name" : 114, "group" : 2 }, { "name" : 115, "group" : 2 }, { "name" : 116, "group" : 2 }, { "name" : 117, "group" : 5 }, { "name" : 118, "group" : 2 }, { "name" : 119, "group" : 2 }, { "name" : 120, "group" : 4 }, { "name" : 121, "group" : 3 }, { "name" : 122, "group" : 6 }, { "name" : 123, "group" : 2 }, { "name" : 124, "group" : 6 }, { "name" : 125, "group" : 3 }, { "name" : 126, "group" : 3 }, { "name" : 127, "group" : 5 }, { "name" : 128, "group" : 5 }, { "name" : 129, "group" : 3 }, { "name" : 130, "group" : 5 }, { "name" : 131, "group" : 4 }, { "name" : 132, "group" : 5 }, { "name" : 133, "group" : 3 }, { "name" : 134, "group" : 3 }, { "name" : 135, "group" : 3 }, { "name" : 136, "group" : 3 }, { "name" : 137, "group" : 2 }, { "name" : 138, "group" : 6 }, { "name" : 139, "group" : 4 }, { "name" : 140, "group" : 2 }, { "name" : 141, "group" : 6 }, { "name" : 142, "group" : 5 }, { "name" : 143, "group" : 3 }, { "name" : 144, "group" : 6 }, { "name" : 145, "group" : 2 }, { "name" : 146, "group" : 3 }, { "name" : 147, "group" : 5 }, { "name" : 148, "group" : 3 }, { "name" : 149, "group" : 5 }, { "name" : 150, "group" : 6 }, { "name" : 151, "group" : 3 }, { "name" : 152, "group" : 1 }, { "name" : 153, "group" : 2 }, { "name" : 154, "group" : 4 }, { "name" : 155, "group" : 4 }, { "name" : 156, "group" : 2 }, { "name" : 157, "group" : 3 }, { "name" : 158, "group" : 6 }, { "name" : 159, "group" : 2 }, { "name" : 160, "group" : 1 }, { "name" : 161, "group" : 4 }, { "name" : 162, "group" : 6 }, { "name" : 163, "group" : 1 }, { "name" : 164, "group" : 1 }, { "name" : 165, "group" : 5 }, { "name" : 166, "group" : 6 }, { "name" : 167, "group" : 4 }, { "name" : 168, "group" : 1 }, { "name" : 169, "group" : 6 }, { "name" : 170, "group" : 6 }, { "name" : 171, "group" : 3 }, { "name" : 172, "group" : 3 }, { "name" : 173, "group" : 4 }, { "name" : 174, "group" : 6 }, { "name" : 175, "group" : 5 }, { "name" : 176, "group" : 4 }, { "name" : 177, "group" : 3 }, { "name" : 178, "group" : 4 }, { "name" : 179, "group" : 6 }, { "name" : 180, "group" : 4 }, { "name" : 181, "group" : 4 }, { "name" : 182, "group" : 5 }, { "name" : 183, "group" : 4 }, { "name" : 184, "group" : 3 }, { "name" : 185, "group" : 2 }, { "name" : 186, "group" : 6 }, { "name" : 187, "group" : 5 }, { "name" : 188, "group" : 3 }, { "name" : 189, "group" : 2 }, { "name" : 190, "group" : 4 }, { "name" : 191, "group" : 2 }, { "name" : 192, "group" : 3 }, { "name" : 193, "group" : 4 }, { "name" : 194, "group" : 3 }, { "name" : 195, "group" : 1 }, { "name" : 196, "group" : 1 }, { "name" : 197, "group" : 1 }, { "name" : 198, "group" : 1 }, { "name" : 199, "group" : 5 }, { "name" : 200, "group" : 1 }, { "name" : 201, "group" : 1 }, { "name" : 202, "group" : 2 }, { "name" : 203, "group" : 6 }, { "name" : 204, "group" : 6 }, { "name" : 205, "group" : 4 }, { "name" : 206, "group" : 1 }, { "name" : 207, "group" : 2 }, { "name" : 208, "group" : 5 }, { "name" : 209, "group" : 3 }, { "name" : 210, "group" : 1 }, { "name" : 211, "group" : 2 }, { "name" : 212, "group" : 5 }, { "name" : 213, "group" : 4 }, { "name" : 214, "group" : 1 }, { "name" : 215, "group" : 1 }, { "name" : 216, "group" : 3 }, { "name" : 217, "group" : 4 }, { "name" : 218, "group" : 4 }, { "name" : 219, "group" : 4 }, { "name" : 220, "group" : 2 }, { "name" : 221, "group" : 4 }, { "name" : 222, "group" : 4 }, { "name" : 223, "group" : 3 }, { "name" : 224, "group" : 2 }, { "name" : 225, "group" : 6 }, { "name" : 226, "group" : 5 }, { "name" : 227, "group" : 5 }, { "name" : 228, "group" : 3 }, { "name" : 229, "group" : 3 }, { "name" : 230, "group" : 3 }, { "name" : 231, "group" : 6 }, { "name" : 232, "group" : 3 }, { "name" : 233, "group" : 6 }, { "name" : 234, "group" : 5 }, { "name" : 235, "group" : 1 }, { "name" : 236, "group" : 2 }, { "name" : 237, "group" : 2 }, { "name" : 238, "group" : 3 }, { "name" : 239, "group" : 5 }, { "name" : 240, "group" : 4 }, { "name" : 241, "group" : 5 }, { "name" : 242, "group" : 4 }, { "name" : 243, "group" : 2 }, { "name" : 244, "group" : 3 }, { "name" : 245, "group" : 3 }, { "name" : 246, "group" : 4 }, { "name" : 247, "group" : 5 }, { "name" : 248, "group" : 6 }, { "name" : 249, "group" : 5 }, { "name" : 250, "group" : 2 } ] ; 
- var width = 900
-height = 600;
 
-var color = d3.scale.category20();
+        <p class="view"><a href="https://github.com/cerees">View My GitHub Profile</a></p>
 
-var force = d3.layout.force()
-.nodes(d3.values(nodes))
-.links(links)
-.size([width, height])
-.linkDistance(50)
-.charge(-120)
-.on("tick", tick)
-.start();
+      </header>
+      <section>
+        <h3>
+<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
-var svg = d3.select("body").append("svg")
-.attr("width", width)
-.attr("height", height);
+<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
 
-var link = svg.selectAll(".link")
-.data(force.links())
-.enter().append("line")
-.attr("class", "link")
-.style("stroke-width", function(d) { return Math.sqrt(d.value); });
+<pre><code>$ cd your_repo_root/repo_name
+$ git fetch origin
+$ git checkout gh-pages
+</code></pre>
 
-var node = svg.selectAll(".node")
-.data(force.nodes())
-.enter().append("g")
-.attr("class", "node")
-.style("fill", function(d) { return color(d.group); })
-.style("opacity", 0.8)
-.on("mouseover", mouseover)
-.on("mouseout", mouseout)
-.call(force.drag);
+<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
 
-node.append("circle")
-.attr("r", 6)
+<h3>
+<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
 
-node.append("svg:text")
-.attr("class", "nodetext")
-.attr("dx", 12)
-.attr("dy", ".35em")
-.text(function(d) { return d.name });
+<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
 
-function tick() {
-link
-.attr("x1", function(d) { return d.source.x; })
-.attr("y1", function(d) { return d.source.y; })
-.attr("x2", function(d) { return d.target.x; })
-.attr("y2", function(d) { return d.target.y; });
+<h3>
+<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
 
-node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-}
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
 
-function mouseover() {
-d3.select(this).select("circle").transition()
-.duration(750)
-.attr("r", 16);
-d3.select(this).select("text").transition()
-.duration(750)
-.attr("x", 13)
-.style("stroke-width", ".5px")
-.style("font", "17.5px serif")
-.style("opacity", 1);
-}
+<h3>
+<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
-function mouseout() {
-d3.select(this).select("circle").transition()
-.duration(750)
-.attr("r", 8);
-}
+<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
 
-</script>
- </body>
+<h3>
+<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+      </section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
