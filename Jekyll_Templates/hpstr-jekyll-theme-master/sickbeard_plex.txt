@@ -1,0 +1,2 @@
+#/bin/bash
+filebot -script fn:amc (path to downloads) --output (path to output folder) --log-file amc.log --action (copy|move) --conflict override -non-strict --def music=y subtitles=en artwork=y
