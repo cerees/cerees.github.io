@@ -13,15 +13,39 @@ color:
 
 # Team names, titles and social links
 people:
+- name: 
+  pic:
+  position:
+  social:
+    - title:
+      url: #
+    - title:
+      url:
+    - title:
+      url: #
+
 - name: Chris Rees
-  pic: 1
+  pic: 2
   position: Sociologist
   social:
-    - title: twitter
-      url: #
     - title: github
       url: https://github.com/cerees
     - title: stack-overflow
+      url: https://github.com/cerees
+    - title: twitter
+      url: #
+    - title: facebook
+      url: #
+
+- name: Diana Petersen
+  pic: 3
+  position: Lead Developer
+  social:
+    - title: twitter
+      url: #
+    - title: facebook
+      url: #
+    - title: google-plus
       url: #
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
