@@ -263,7 +263,7 @@ fieldset[disabled] .btn-xl.active {
 }
 
 header {
-    text-align: left;
+    text-align: center;
     color: #fff;
     background-attachment: scroll;
     background-image: url(../img/header-bg.jpg);
@@ -276,10 +276,12 @@ header {
 }
 
 header .intro-text {
-    padding-top: 100%;
+    padding-top: 100px;
+    padding-bottom: 50px;
 }
 
 header .intro-text .intro-lead-in {
+    margin-bottom: 25px;
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 22px;
     font-style: italic;
@@ -287,6 +289,7 @@ header .intro-text .intro-lead-in {
 }
 
 header .intro-text .intro-heading {
+    margin-bottom: 25px;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 50px;
