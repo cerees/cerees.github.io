@@ -13,7 +13,7 @@ color:
 
 # Team names, titles and social links
 people:
-- name: 
+- name:
   pic:
   position:
   social:
@@ -39,6 +39,17 @@ people:
 
 - name: Diana Petersen
   pic: 3
+  position: Lead Developer
+  social:
+    - title: twitter
+      url: #
+    - title: facebook
+      url: #
+    - title: google-plus
+      url: #
+
+- name: Diana Petersen
+  pic: 1
   position: Lead Developer
   social:
     - title: twitter
